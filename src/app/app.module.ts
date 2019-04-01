@@ -24,6 +24,9 @@ import { PostComponent } from './post/post.component';
 import { AppErrorHandler } from './common/default/app-error-handler';
 import { CommentsListComponent } from './comments-list/comments-list.component';
 import { RxjsDemoComponent } from './rxjs-demo/rxjs-demo.component';
+import { GithubFollowersComponent } from './github-followers/github-followers.component';
+import { NavComponent } from './nav/nav.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({ // module decorator
   declarations: [
@@ -44,7 +47,10 @@ import { RxjsDemoComponent } from './rxjs-demo/rxjs-demo.component';
     FormBuilderComponent,
     PostComponent,
     CommentsListComponent,
-    RxjsDemoComponent
+    RxjsDemoComponent,
+    GithubFollowersComponent,
+    NavComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

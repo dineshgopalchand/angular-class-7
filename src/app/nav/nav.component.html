@@ -1,0 +1,18 @@
+<!-- <ul class="nav nav-tabs">
+  <li class="active"><a href="#">Post</a></li>
+  <li><a href="#">Github Followers</a></li>
+  <li><a href="#">Topic</a></li>
+  <li><a href="#">About</a></li>
+  <li><a href="#">Contact</a></li>
+</ul> -->
+
+<ul class="nav nav-tabs">
+  <li [class.active]="defautTab=='post'"><a href="#" (click)="defautTab='post'">Post</a></li>
+  <li [class.active]="defautTab=='git'"><a href="#" (click)="defautTab='git'">Github Followers</a></li>
+  <li [class.active]="defautTab=='topic'"><a href="GIT" (click)="defautTab='topic'" >Topic</a></li>
+  <li [class.active]="defautTab=='About'"><a href="#" (click)="defautTab='About'">About</a></li>
+  <li [class.active]="defautTab=='contact'"><a href="#" (click)="defautTab='contact'">Contact</a></li>
+</ul>
+<app-post *ngIf="defautTab=='post'"></app-post>
+<app-github-followers *ngIf="defautTab=='git'"></app-github-followers>
+<app-topics *ngIf="defautTab=='topic'"></app-topics>

@@ -1,0 +1,11 @@
+<!-- {{gitFollowers | json}} -->
+
+<div class="media" *ngFor="let gitF of gitFollowers">
+  <div class="media-left media-middle">
+    <img [src]="gitF.avatar_url" class="media-object" style="width:60px">
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">{{gitF.login}}</h4>
+    <a class="btn btn-default" [href]="gitF.html_url">See Profile  on Github</a>
+  </div>
+</div>

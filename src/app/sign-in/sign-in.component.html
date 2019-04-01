@@ -1,0 +1,32 @@
+<!-- form>(div.form-group>label[for="username"].form-group+input[type="text"]#username.form-control)+(div.form-group>label[for="password"].form-group+input[type="text"]#password.form-control)+input.btn.btn-primary[type="submit"] -->
+<div class="row">
+  <div class="col-sm-12 col-lg-6">
+    <form [formGroup]="signIn" (ngSubmit)="formSubmit()">
+      <div formGroupName="account">
+        <div class="form-group">
+          <label for="username" class="form-group" [title]="titleVariable" >Username</label>
+          <input type="text" class="form-control" formControlName="username" (keyup)="formInput()">
+          <!-- (keyup)="formInput()" -->
+        </div>
+        <div *ngIf="username.pending" class="alert alert-info">Checking on serve....</div>
+        <div class="alert alert-danger" *ngIf="username.errors 
+      && username.touched">
+          <div *ngIf="username.errors.required">Username is Required</div>
+          <div *ngIf="username.errors.uniqueUserName">Username:{{username.value}} is not available</div>
+          <div *ngIf="username.errors.containesSpace">Username cannot contain Space</div>
+          <div *ngIf="username.errors.minlength">
+            Username length is less then {{username.errors.minlength.requiredLength}}
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password" class="form-group">Password</label>
+        <input type="text" class="form-control" formControlName="password">
+      </div>
+      <input type="submit" [disabled]="signIn.invalid " class="btn btn-primary">
+    </form>
+  </div>
+</div>
+{{signIn.invalid || signIn.pending }} : signIn.invalid || signIn.pending <br>
+{{signIn.invalid }} : signIn.invalid <br>
+{{signIn.pending}} : signIn.pending<br>

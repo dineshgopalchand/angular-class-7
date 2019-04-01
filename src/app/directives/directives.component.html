@@ -1,0 +1,116 @@
+<!-- div*2>p -->
+<!-- <div *ngIf="courseList.length > 0">
+  <p>Courses List</p>
+</div>
+<div *ngIf="courseList.length == 0">
+  <p>No Course Available</p>
+</div> -->
+
+<!-- <div *ngIf="courseList.length > 0; then courseShow else noCourse">
+</div>
+<ng-template #courseShow >Courses List</ng-template>
+
+<ng-template #noCourse>No Course Available</ng-template> -->
+
+
+<!-- <div [hidden]="courseList.length == 0">
+  <p>Courses List</p>
+</div>
+<div [hidden]="courseList.length > 0">
+  <p>No Course Available</p>
+</div> -->
+<!-- <div [class.someclassname]="1>2" 
+  [class.someclassname]="1>2" 
+  [class.someclassname]="1>2"></div>
+<div [class.someclassname]="1 < 2"></div> -->
+
+
+<div class="tab-list">
+  <button class="btn btn-primary" (click)="showTab= 'course'">Course List</button>
+  <button class="btn btn-primary" (click)="showTab= 'user'">User Profile</button>
+</div>
+<!-- ngSwitch -->
+
+<div [ngSwitch]="showTab">
+  <div *ngSwitchCase="'course'">
+    <div *ngIf="courseList.length > 0">
+      <h2>Courses List</h2>
+      <!-- <button class="btn btn-default" (click)="addCourse()">Add Course</button> -->
+      <div class="form-group">
+        <label for="coursename">Course</label>
+        <input type="text" class="form-control" name="coursename"
+          #courseField
+          (keyup.enter)="addCourse(courseField)">
+      </div>
+      <ul class="list">
+        <li class="list-item" *ngFor="let course of courseList; index as indexVal ; even as even; odd as isOdd">
+          <!-- {{course.id +' '+course.name}} -->
+          <!-- {{course.name}} {{indexVal}} -->
+          <!-- <p [style.color]=" (indexVal+1) ==4 ? 'red':'#000000'"> {{course.name}} </p> -->
+          <!-- <p [class.lightbackground]="(indexVal+1) % 2==0"
+          [class.deepbackground]="(indexVal+1) % 2!=0"
+          > {{course.name}} </p> -->
+          <!-- {{even}} -->
+          <p [class.lightbackground]="even" [class.deepbackground]="isOdd"><button class="btn btn-danger" (click)="removeElement(course)">Remove</button>
+            {{course.name}}
+          </p>
+          <!-- {{indexVal}} -->
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="courseList.length == 0">
+      <p>No Course Available</p>
+    </div>
+  </div>
+  <div *ngSwitchCase="'user'">
+    <p>User List</p>
+  </div>
+  <div *ngSwitchDefault>
+    <div>No Tab Selected</div>
+  </div>
+</div>
+
+
+
+<!-- <div *ngIf="showTab=='course'">
+  <div *ngIf="courseList.length > 0">
+    <p>Courses List</p>
+  </div>
+  <div *ngIf="courseList.length == 0">
+    <p>No Course Available</p>
+  </div>
+</div>
+
+<div *ngIf="showTab=='user'">
+  <p>User List</p>
+</div> -->
+<!-- <div *ngIf="usersDetails.user">{{usersDetails.user.fName}}</div> -->
+<div>
+Name: {{usersDetails?.user?.fName}}  {{usersDetails?.user?.lName}} 
+</div>
+
+
+ <!-- [class.bgRed]="courseList.length" 
+  [class.colorBlue]="courseList.length"
+-->
+<!-- <div 
+  [ngClass]="{
+    'bgRed': courseList.length,
+    'colorBlue': courseList.length,
+    'lightbackground' : !courseList.length,
+    'colorBlack' : !courseList.length
+  }"
+>Course List</div>
+<div 
+[ngStyle]="{
+  'backgroundColor': courseList.length ? '#232323' : '#ffffff',
+  'color' : courseList.length ? '#f9f9f9' : '#000000'
+}"
+>Course List</div> -->
+
+<!-- div.form-group>label[for="firstname"]+input.form-control[name="firstname"] -->
+<div class="form-group">
+  <label for="firstname">First Name</label>
+  <input type="text" class="form-control" [appInputFormat]="'lowercase'" name="firstname">
+</div>
+<!-- <app-contact-form></app-contact-form> -->

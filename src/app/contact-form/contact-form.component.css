@@ -1,0 +1,11 @@
+.form-control.ng-touched.ng-invalid {
+    border: #a52020 1px solid;
+}
+.name-group-custom{
+    /* background-color: #f4b2b2; */
+    padding: 10px 5px;
+}
+
+.name-group-custom.ng-touched.ng-invalid{
+    background-color: #f4b2b2;
+}

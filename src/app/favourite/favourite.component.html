@@ -1,0 +1,4 @@
+<div>
+  <i class="glyphicon" [class.glyphicon-heart]="isSelected" [class.glyphicon-heart-empty]="!isSelected" (click)="changeStatus()"></i>
+  <p>{{isSelected ?'liked':'like'}}</p>
+</div>

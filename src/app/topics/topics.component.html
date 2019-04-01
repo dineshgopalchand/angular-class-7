@@ -1,0 +1,17 @@
+<!-- form>div.form-group>label[for="topic"]+input.form-control[name="topic"][type="text"] -->
+<form [formGroup]="form">
+    <div class="form-group">
+      <label for="topic">Add Topic</label>
+      <input type="text" class="form-control" #topicInput name="topic" >
+      <!--  -->
+      <button class="btn btn-primary" (click)="addTopic(topicInput)">Save</button>
+    </div>
+   
+  </form>
+  <ul class="list-group">
+      <li class="list-group-item" *ngFor="let topic of topicsArr.controls">
+        <button class="btn btn-danger" (click)="removeTopic(topic)">Remove</button>
+        {{topic.value}}
+      </li>
+    </ul>
+  <!-- {{topicsArr | json}} -->

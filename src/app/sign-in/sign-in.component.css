@@ -1,0 +1,4 @@
+[formgroupname].ng-invalid.ng-touched {
+    background: #eeb3b3;
+    padding: 10px;
+}

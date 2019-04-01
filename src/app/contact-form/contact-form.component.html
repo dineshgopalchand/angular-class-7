@@ -1,0 +1,81 @@
+<h2>Contact Us Form</h2>
+<!-- form>div.form-group>label[for="firstname"]+input[type="text"].form-control[name="firstname"] -->
+<form (ngSubmit)="submitFunction(f1)" #f1="ngForm"  ngForm>
+  <div class="name-group-custom" 
+    #nameField="ngModelGroup" ngModelGroup="name-field">
+      <div style="color:black;font-size:0.9rem;" 
+        *ngIf="nameField.touched &&nameField.invalid">
+        Name Fields are not Valid
+      </div>
+    <div class="form-group">
+      <label for="firstname">First Name</label>
+      <input type="text" 
+        #firstName="ngModel"
+        ngModel
+        name="firstname"
+        required  
+        minlength="4" 
+        maxlength="15"
+        pattern="^[a-zA-Z ]+$"
+        class="form-control" >
+        <!-- (keyup)="someKeyupFunction(firstName)"  -->
+    </div>
+    <div class="alert alert-danger" *ngIf="firstName.errors && firstName.touched">
+      <div *ngIf="firstName.errors.required">First Name is required</div>
+      <div *ngIf="firstName.errors.minlength">First Name should be of {{firstName.errors.minlength.requiredLength}} charecters</div>
+      <div *ngIf="firstName.errors.maxlength">First Name should be max of {{firstName.errors.maxlength.requiredLength}} charecters</div>
+      <div *ngIf="firstName.errors.pattern">First Name is not valid</div>
+    </div>
+    <div class="form-group">
+      <label for="lastname">Last Name</label>
+      <input type="text" class="form-control" ngModel #lastname="ngModel" name="lastname" (keyup)="someKeyupFunction(lastname)">
+    </div>
+  </div>
+ 
+  <div class="form-group">
+    <label for="Comment">Comment</label>
+    <textarea ngModel #comment class="form-control" name="comment" cols="30" rows="10"></textarea>
+  </div>
+  <!-- checkbox -->
+  <!-- div.checkbox>label[for="issubscribe"]>input[type="checkbox"][name="issubscribe"]>lorem2 -->
+
+<!-- div.form-group>label[for="contactMethod"]+select[name="contactMethod"].form-control>option[value=""]*3 -->
+
+
+<div class="form-group">
+    <label for="contactMethod">Contact Method</label>
+    <select name="contactMethod" class="form-control" ngModel >
+      <!-- <option [value]="method.id" *ngFor="let method of contactMethod"> -->
+      <option [ngValue]="method.isselected ? '' : method" *ngFor="let method of contactMethod" >
+        {{method.name}}
+      </option>
+    </select>
+  </div>
+
+  <!-- radio -->
+  <div class="radio" *ngFor="let method of contactMethod">
+    <label for="contactMethod1">
+      <input type="radio" name="contactMethod1" ngModel [value]="method.id">
+      {{method.name}}
+    </label>
+  </div>
+  
+  
+
+
+
+  <div class="checkbox">
+    <label for="issubscribe">
+      <input type="checkbox" name="issubscribe" ngModel>
+      Subscribe to Mailing List
+    </label>
+  </div>
+
+
+  <button type="submit" class="btn btn-primary"[disabled]="f1.invalid">Submit</button>
+</form>
+
+ <div>Values: {{f1.value | json}}</div> 
+<!-- <div>Errors: {{firstName.errors | json}}</div> -->
+<!-- <div>touched: {{firstName.touched | json}}</div>  -->
+

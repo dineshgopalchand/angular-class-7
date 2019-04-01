@@ -1,0 +1,27 @@
+<!-- div>ul.list-group>li.list-group-item -->
+<div class="form-group">
+  <input type="text" 
+    placeholder="Enter New Title" 
+    class="form-control" 
+    #newPost
+    (keyup.enter)="createNewPost(newPost)">
+</div>
+<div>
+    <!-- <div class="media" *ngFor="let post of posts">
+        <div class="media-left media-middle">
+          <img src="https://avatars3.githubusercontent.com/u/1058356?v=4" class="media-object" style="width:60px">
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">Media Middle</h4>
+          <p>Lorem ipsum...</p>
+        </div>
+      </div> -->
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let post of posts">
+      <button class="btn btn-danger" (click)="removePost(post)">Delete</button>
+      <button class="btn btn-primary" (click)="updatePost(post)">Update</button>
+      {{post.title}}
+      <!-- {{post | json}} -->
+    </li>
+  </ul>
+</div>

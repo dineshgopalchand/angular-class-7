@@ -1,0 +1,18 @@
+<p>
+  pipes works!
+</p>
+<p>{{course | json}} </p>
+<p>{{ course.title | lowercase}}</p>
+<p>{{ course.title | uppercase}}</p>
+<p>{{ course.title | titlecase}}</p>
+<p>{{ course.rating | number :'3.1-2'}}</p>
+<p>{{ course.students | number}}</p>
+<p>{{ course.price | currency:'INR'}}</p>
+<p>{{ course.price | currency:'USD' }}</p>
+<p>{{ course.price | currency:'EUR' }}</p>
+<p>{{ course.price | currency:'CAD' }}</p>
+<p>{{ course.releaseDate | date :'shortDate' }}</p>
+<p>{{ course.releaseDate | date : 'shortTime'}}</p>
+
+
+<p>{{postContent | summary : '200'}}</p>

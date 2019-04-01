@@ -1,0 +1,6 @@
+TO create service for comment/github/ or anything:
+1.Create service    ng g c serviceName
+2.Extend the service class with AppService
+3. Pass http object name and URL in super function inside the constructor of service
+4. use the instance of service in your component(i.e private objName: serviceClassName)
+5. use the method like getAll, create, update... so on in the component

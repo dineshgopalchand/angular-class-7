@@ -1,0 +1,92 @@
+<h2>Current Topic : {{title}}</h2>
+<!-- <button>{{buttonContent}}</button>
+<hr>
+<button [textContent]="buttonContent"></button>
+<hr> -->
+<!-- <img src="{{imgSrc}}" [alt]="title" [attr.data-image-description]="title">
+<img [src]="imgSrc" [alt]="title"> -->
+<!-- <table>
+  <tr>
+    <td [attr.colspan]="colspan">Lorem.</td>
+    <td>Vel?</td>
+    <td>Officiis!</td>
+  </tr>
+  <tr>
+    <td>Quibusdam?</td>
+    <td [attr.rowspan]="rowspan">Quo.</td>
+    <td>Recusandae?</td>
+    <td>Aut.</td>
+  </tr>
+  <tr>
+    <td>Consequatur!</td>
+    <td>Perferendis.</td>
+    <td>Id?</td>
+  </tr>
+</table> -->
+
+<!-- <button 
+  class="btn btn-primary"
+  [class.active]="isActive" 
+  [class.btn-danger]="!isActive"
+  >Save</button> -->
+<!-- <button class="btn btn-primary active">Save</button> -->
+
+<!-- <button class="btn btn-danger">Wait</button> -->
+<!-- someCondition=true;
+if(someCondition){
+  console.log('success message');
+}else{
+  console.log('Error Message');
+} -->
+
+<!-- Style Binding -->
+<p style="color:red" [style.color]=" isActive ? 'blue' : 'red' ">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea, ullam.</p>
+<p style="color:red" [style.color]=" isActive ? successColor : errorColor ">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea, ullam.</p>
+
+<div (click)="logFunction()">
+
+  <button (click)="changeStatus($event)"
+    class="btn btn-primary"
+    [class.active]="isActive" 
+    [class.btn-danger]="!isActive" value="save-value"
+    >Save</button>
+</div>
+<!-- div.form-group>label[for="firstname"]+input.form-control[name="firstvename"] -->
+<!-- <div class="form-group">
+  <label for="firstname">First Name</label>
+  <input type="text" class="form-control" name="firstname" (keyup.enter)="showValue($event)">
+</div> -->
+<!-- 
+<div class="form-group">
+    <label for="firstname">First Name</label>
+    <input type="text" class="form-control" name="firstname" #firstName1 >
+  </div> -->
+
+<!-- <div class="form-group">
+  <label for="firstname">First Name</label>
+  <input type="text" class="form-control" name="firstname"  [value]="inputVal" #firstName (keyup.enter)="showValue(firstName)">
+</div> -->
+<!-- <div class="form-group">
+  <label for="firstname">First Name</label>
+  <input type="text" class="form-control" name="firstname"  [value]="inputVal" #firstName (keyup)="inputVal=firstName.value">
+</div> -->
+
+
+<div class="form-group">
+  <label for="firstname">First Name</label>
+  <input type="text" class="form-control" 
+    name="firstname"  [(ngModel)]="inputVal" 
+     >
+</div>
+<div>{{inputVal}}</div>
+
+
+
+
+
+
+
+
+
+
+
